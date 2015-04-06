@@ -1,0 +1,40 @@
+<openerp>
+	<data>
+		 <record id="view_inheritance_task" model="ir.ui.view">
+            <field name="name">first.view.inheritance</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2" />
+            <field name="arch" type="xml">
+				<xpath expr="//page[@string='Extra Info']" position= "after">
+					<page string="Sub Tasks">
+						<field name="subtasks">
+							<tree editable="bottom">
+								<field name="description" required="True"/>
+								<field name="status"/>
+							</tree>
+						</field>
+					</page>
+				</xpath>
+			</field>
+		</record>
+		
+		 <record id="view_track_task_progress_subtask" model="ir.ui.view">
+            <field name="name">first.view.inheritance</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project_management.view_task_form2_users" />
+            <field name="arch" type="xml">
+				<xpath expr="//page[@string = 'Work Summary']" position= "after">
+					<page string="Sub Tasks">
+						<field name="subtasks">
+							<tree editable="bottom">
+								<field name="description" required="True"/>
+								<field name="status"/>
+							</tree>
+						</field>
+					</page>
+				</xpath>
+			</field>
+		</record>
+				
+	</data>
+</openerp>
